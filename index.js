@@ -18,5 +18,19 @@ function markDistanceAndPredecessor(startingNode, adjacentNodes) {
 
 
 function bfs(startingNode, vertices, edges) {
-
+  // initialize the starting.node distance to 0
+  startingNode.distance = 0;
+  // keep track of all the nodes that have been discovered, starting with the startingNode
+  let discovered = [startingNode];
+  // create separate array to push items in order, again starting with startingNode
+  let ordered = [startingNode]
+  // as long as there are items in discovered, take the first item in array and find its adjacent neighbours, and add those to discovered and ordered
+  while (discovered.length !== 0) {
+    let searchNode = discovered.shift()
+    let adjacentNodes = findAdjacent(searchNode.name, vertices, edges)
+    ordered = ordered.concat(adjacentNodes)
+    markDistanceAndPredecessor(searchNode, adjacentNodes)
+    discovered = discovered.concat(adjacentNodes)
+  }
+  return ordered
 }
