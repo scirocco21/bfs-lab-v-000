@@ -29,7 +29,7 @@ function bfs(startingNode, vertices, edges) {
     let searchNode = discovered.shift()
     let adjacentNodes = findAdjacent(searchNode.name, vertices, edges)
     ordered = ordered.concat(adjacentNodes)
-    markDistanceAndPredecessor(searchNode, vertices, edges)
+    markDistanceAndPredecessor(searchNode, adjacentNodes)
     discovered = discovered.concat(adjacentNodes)
   }
   return ordered
