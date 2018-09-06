@@ -27,7 +27,7 @@ function bfs(startingNode, vertices, edges) {
   // as long as there are items in discovered, take the first item in array and find its adjacent neighbours, and add those to discovered and ordered
   while (discovered.length !== 0) {
     let searchNode = discovered.shift()
-    let adjacentNodes = findAdjacent(searchNode, vertices, edges)
+    let adjacentNodes = findAdjacent(searchNode.name, vertices, edges)
     ordered = ordered.concat(adjacentNodes)
     markDistanceAndPredecessor(searchNode, vertices, edges)
     discovered = discovered.concat(adjacentNodes)
