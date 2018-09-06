@@ -32,5 +32,5 @@ function bfs(startingNode, vertices, edges) {
     markDistanceAndPredecessor(searchNode, vertices, edges)
     discovered = discovered.concat(adjacentNodes)
   }
-  return orderd
+  return ordered
 }
